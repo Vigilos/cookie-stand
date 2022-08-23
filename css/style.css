@@ -1,1 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+h1,
+h2,
+h3,
+h3,
+h5,
+h6 {
+  font-family: 'Acme', sans-serif;
+}
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#cookies-per-hour {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#cookies-per-hour h2 {
+  border-bottom: thin solid #0d68ad;
+  display: inline-block;
+  margin: 8px;
+}
+#cookies-per-hour li {
+  list-style-type: disc;
+  padding-bottom: 2px;
+  margin-left: 10px;
+}
+#cookies-per-hour div {
+  border: thin solid #0d68ad;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+}
+body {
+  background-color: #a7cff1;
+}
+header {
+  background-color: #0d68ad;
+  background-image: url('../img/salmon.png');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 170px;
+  border: 2px solid black;
+}
+header h1 {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 45px;
+  text-align: center;
+  padding-top: 85px;
+}
+main {
+  padding-bottom: 10px;
+}
+footer {
+  background-color: #0d68ad;
+  padding: 20px;
+  border-top: 2px solid black;
+}
+footer div {
+  display: inline-block;
+  vertical-align: text-top;
+}
+.footer-title {
+  font-weight: bold;
+}
+.footer-left {
+  width: 50%;
+  padding-top: 25px;
+  padding-left: 40px;
+}
+.footer-middle {
+  padding-right: 50px;
+}
