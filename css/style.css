@@ -37,10 +37,6 @@ body {
 }
 header {
   background-color: #0d68ad;
-  background-image: url('../img/salmon.png');
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 170px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -48,9 +44,20 @@ header {
 header h1 {
   color: #dbecf8;
   text-shadow: 2px 2px black;
-  font-size: 45px;
-  text-align: center;
-  padding-top: 85px;
+  font-size: 50px;
+  z-index: 10;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#main-image {
+  z-index: 0;
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
 }
 main {
   padding-bottom: 10px;

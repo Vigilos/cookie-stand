@@ -128,3 +128,21 @@ function createSalesListStructure(locations) {
     cookieSalesListEl.appendChild(elementName);
   }
 }
+
+/*
+let tableBody = docmument.getElementById('table-body');
+
+for (let pokemon of pokedex) {
+  pokemon.speak();
+
+  let row = document.createElement('tr');
+
+  for (let key in pokemon) {
+    let value = pokemon[key];
+    let cell = document.createElement('td');
+    cell.contentText = value;
+    row.appendChild(cell);
+  }
+}
+tableBody.appendChild(row);
+*/
