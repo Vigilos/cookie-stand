@@ -74,7 +74,7 @@ let lima = {
   },
 };
 
-// Declare locations array and call functions for display of estimated sales
+// Declare locations array, create initial HTML structure, and call functions for display of estimated sales
 const locations = [seattle, tokyo, dubai, paris, lima];
 createSalesListStructure(locations);
 for (let location of locations) {
@@ -120,6 +120,7 @@ function displayCookiesPerHour(location) {
   salesListEl.querySelector(`.${location.name} ul`).appendChild(text2Add);
 }
 
+// Create initial HTML structure for sales data on sales page
 function createSalesListStructure(locations) {
   for (let location of locations) {
     let elementName = document.createElement('div');
