@@ -1,6 +1,7 @@
 'use strict';
 
 let stores = [];
+let cookieSalesListEl = document.getElementById('cookies-per-hour');
 
 // Declare location objects
 function Store(
@@ -73,44 +74,14 @@ addStore({
   avgSoldCookies: 1.2,
   hourlyTotals: [],
 });
-addStore({
-  name: 'dubai',
-  hourOpen: 6,
-  hourClosed: 20,
-  minCust: 11,
-  maxCust: 38,
-  avgSoldCookies: 3.7,
-  hourlyTotals: [],
-});
-addStore({
-  name: 'paris',
-  hourOpen: 6,
-  hourClosed: 20,
-  minCust: 20,
-  maxCust: 38,
-  avgSoldCookies: 2.3,
-  hourlyTotals: [],
-});
-addStore({
-  name: 'lima',
-  hourOpen: 6,
-  hourClosed: 20,
-  minCust: 2,
-  maxCust: 16,
-  avgSoldCookies: 4.6,
-  hourlyTotals: [],
-});
 
-// Calculate and populate (in object) customers per hour
+// Calculate and populate customers per hour
 for (let store of stores) {
   store.calcCustPerHour();
 }
 
-// Call function to generate and display sales estimates data table
-createSalesTable();
-
 // Create initial HTML structure for sales data table on sales page
-function createSalesTable() {
+function createSalesTableStructure() {
   let totalOfDailyTotals = 0;
   let salesTableEl = document.querySelector('#sales-table');
   let rowEl = document.createElement('tr');
@@ -155,6 +126,8 @@ function createSalesTable() {
   createTableFooter(6, 20, totalOfDailyTotals);
 }
 
+createSalesTableStructure();
+
 // Create table header with row of open times
 function createTableHeader(openTime, closedTime, rowEl) {
   let tableTitleEl = document.createElement('th');
@@ -178,7 +151,7 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
   document.querySelector('#sales-table').appendChild(rowEl);
 
   // Create title for bottom-left table cell
-  let tableTitleEl = document.createElement('th');
+  let tableTitleEl = document.createElement('td');
   tableTitleEl.textContent = 'Totals';
   rowEl.appendChild(tableTitleEl);
 
@@ -191,13 +164,141 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
     sumTotals = 0;
   }
   for (let total of crossStoreTotals) {
-    let tableTitleEl = document.createElement('th');
+    let tableTitleEl = document.createElement('td');
     tableTitleEl.textContent = total;
     rowEl.appendChild(tableTitleEl);
   }
 
   // Add total of daily totals to end of footer row
-  tableTitleEl = document.createElement('th');
+  tableTitleEl = document.createElement('td');
   tableTitleEl.textContent = totalOfDailyTotals;
   rowEl.appendChild(tableTitleEl);
+}
+
+// ____________________________________________
+
+let seattle = {
+  name: 'seattle',
+  hourOpen: 6,
+  hourClosed: 20,
+  minCust: 23,
+  maxCust: 65,
+  avgSoldCookies: 6.3,
+  hourlyTotals: [],
+  custPerHour: function randomNumber() {
+    return Math.floor(
+      this.minCust + Math.random() * (this.maxCust - this.minCust + 1)
+    );
+  },
+};
+let tokyo = {
+  name: 'tokyo',
+  hourOpen: 6,
+  hourClosed: 20,
+  minCust: 3,
+  maxCust: 24,
+  avgSoldCookies: 1.2,
+  hourlyTotals: [],
+  custPerHour: function randomNumber() {
+    return Math.floor(
+      this.minCust + Math.random() * (this.maxCust - this.minCust + 1)
+    );
+  },
+};
+let dubai = {
+  name: 'dubai',
+  hourOpen: 6,
+  hourClosed: 20,
+  minCust: 11,
+  maxCust: 38,
+  avgSoldCookies: 3.7,
+  hourlyTotals: [],
+  custPerHour: function randomNumber() {
+    return Math.floor(
+      this.minCust + Math.random() * (this.maxCust - this.minCust + 1)
+    );
+  },
+};
+let paris = {
+  name: 'paris',
+  hourOpen: 6,
+  hourClosed: 20,
+  minCust: 20,
+  maxCust: 38,
+  avgSoldCookies: 2.3,
+  hourlyTotals: [],
+  custPerHour: function randomNumber() {
+    return Math.floor(
+      this.minCust + Math.random() * (this.maxCust - this.minCust + 1)
+    );
+  },
+};
+let lima = {
+  name: 'lima',
+  hourOpen: 6,
+  hourClosed: 20,
+  minCust: 2,
+  maxCust: 16,
+  avgSoldCookies: 4.6,
+  hourlyTotals: [],
+  custPerHour: function randomNumber() {
+    return Math.floor(
+      this.minCust + Math.random() * (this.maxCust - this.minCust + 1)
+    );
+  },
+};
+
+// Declare locations array, create initial HTML structure, and call functions for display of estimated sales
+// const locations = [seattle, tokyo, dubai, paris, lima];
+// createSalesListStructure(locations);
+// for (let location of locations) {
+//   calcCustPerHour(location);
+//   displayCookiesPerHour(location);
+// }
+
+// Calcualte estimates sales per hour and store in object
+function calcCustPerHour(location) {
+  let hourTotals = [];
+  let hourTotalsIndex = 0;
+  for (let i = location.hourOpen; i < location.hourClosed; i++) {
+    hourTotals[hourTotalsIndex] = Math.round(
+      location.custPerHour() * location.avgSoldCookies
+    );
+    hourTotalsIndex++;
+  }
+  location.hourlyTotals = hourTotals;
+}
+
+// Display estimate sales per hour to DOM
+function displayCookiesPerHour(location) {
+  let hourTotalsIndex = 0;
+  let sumSales = 0;
+  let salesListEl = document.querySelector(`.${location.name}`);
+  let locTitle = salesListEl.appendChild(document.createElement('h2'));
+  locTitle.textContent = location.name;
+  salesListEl.appendChild(document.createElement('ul'));
+  let text2Add = document.createElement('li');
+  for (let i = location.hourOpen; i < location.hourClosed; i++) {
+    text2Add = document.createElement('li');
+    text2Add.textContent = `${i > 12 ? i - 12 + 'pm' : i + 'am'}: ${
+      location.hourlyTotals[hourTotalsIndex]
+    } cookies`;
+    salesListEl.querySelector(`.${location.name} ul`).appendChild(text2Add);
+    hourTotalsIndex++;
+  }
+  for (let sales of location.hourlyTotals) {
+    sumSales += sales;
+  }
+  text2Add = document.createElement('li');
+  text2Add.textContent = `Total: ${sumSales} cookies`;
+  salesListEl.querySelector(`.${location.name} ul`).appendChild(text2Add);
+}
+
+// Create initial HTML structure for sales data on sales page
+function createSalesListStructure(locations) {
+  for (let location of locations) {
+    let elementName = document.createElement('div');
+    elementName.classList.add(location.name);
+    cookieSalesListEl.appendChild(elementName);
+  }
 }
