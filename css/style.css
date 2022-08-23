@@ -58,7 +58,7 @@ main {
 footer {
   color: #b1d9e9;
   background-color: #0d68ad;
-  padding: 20px;
+  padding: 10px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
@@ -66,12 +66,17 @@ footer div {
   display: inline-block;
   vertical-align: text-top;
 }
+footer p {
+  font-size: 12px;
+}
 .footer-title {
   font-weight: bolder;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 .footer-left {
   width: 50%;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-left: 40px;
 }
 .footer-middle {
