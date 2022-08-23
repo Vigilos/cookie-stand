@@ -89,3 +89,23 @@ footer p {
 .footer-middle {
   padding-right: 50px;
 }
+#sales-table {
+  margin: 20px 0px 50px 20px;
+}
+#sales-table td {
+  padding: 8px;
+  text-align: center;
+  border: thin solid #6c6c6c;
+  text-transform: capitalize;
+}
+.table-titles th {
+  padding: 8px 8px 12px 8px;
+  font-weight: bold;
+  word-wrap: normal;
+}
+.cross-store-totals th {
+  padding: 8px;
+  text-align: center;
+  border: thin solid #6c6c6c;
+  text-transform: capitalize;
+}
