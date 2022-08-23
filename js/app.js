@@ -4,7 +4,7 @@ let cookieSalesListEl = document.getElementById('cookies-per-hour');
 
 // Declare location objects
 let seattle = {
-  name: 'Seattle',
+  name: 'seattle',
   hourOpen: 6,
   hourClosed: 20,
   minCust: 23,
@@ -18,7 +18,7 @@ let seattle = {
   },
 };
 let tokyo = {
-  name: 'Tokyo',
+  name: 'tokyo',
   hourOpen: 6,
   hourClosed: 20,
   minCust: 3,
@@ -32,7 +32,7 @@ let tokyo = {
   },
 };
 let dubai = {
-  name: 'Dubai',
+  name: 'dubai',
   hourOpen: 6,
   hourClosed: 20,
   minCust: 11,
@@ -46,7 +46,7 @@ let dubai = {
   },
 };
 let paris = {
-  name: 'Paris',
+  name: 'paris',
   hourOpen: 6,
   hourClosed: 20,
   minCust: 20,
@@ -60,7 +60,7 @@ let paris = {
   },
 };
 let lima = {
-  name: 'Lima',
+  name: 'lima',
   hourOpen: 6,
   hourClosed: 20,
   minCust: 2,

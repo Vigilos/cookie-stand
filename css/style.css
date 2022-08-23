@@ -16,6 +16,7 @@ p {
 }
 #cookies-per-hour h2 {
   border-bottom: thin solid #0d68ad;
+  text-transform: capitalize;
   display: inline-block;
   margin: 8px;
 }
@@ -31,7 +32,8 @@ p {
   padding: 10px;
 }
 body {
-  background-color: #a7cff1;
+  /* background-color: #a7cff1; */
+  background-color: #bbbbbd;
 }
 header {
   background-color: #0d68ad;
@@ -40,7 +42,8 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   height: 170px;
-  border: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 header h1 {
   color: white;
@@ -56,6 +59,7 @@ footer {
   background-color: #0d68ad;
   padding: 20px;
   border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 footer div {
   display: inline-block;
