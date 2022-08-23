@@ -40,6 +40,7 @@ header {
   height: 170px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  width: 100%;
 }
 header h1 {
   color: #dbecf8;
@@ -102,6 +103,7 @@ footer p {
   padding: 8px 8px 12px 8px;
   font-weight: bold;
   word-wrap: normal;
+  vertical-align: bottom;
 }
 .cross-store-totals th {
   padding: 8px;
