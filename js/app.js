@@ -122,7 +122,7 @@ function createSalesTable() {
   tableTitleEl.textContent = '';
   rowEl.appendChild(tableTitleEl);
 
-  // Create row of open times as table headings (open time, close time, parent row object)
+  // Create row of times as table headings (open time, close time, parent row object)
   createTableHeader(6, 20, rowEl);
 
   // Create row of hourly sales for each store, starting each row with store name
@@ -151,7 +151,7 @@ function createSalesTable() {
     tableTitleEl.textContent = sumSales;
     rowEl.appendChild(tableTitleEl);
   }
-
+  // Create table footer with hourly totals
   createTableFooter(6, 20, totalOfDailyTotals);
 }
 
