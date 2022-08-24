@@ -1,6 +1,8 @@
 'use strict';
 
 let stores = [];
+let globalOpenTime = 6; // Used as long as all stores have same open times
+let globalCloseTime = 20; // Used as long as all stores have same close times
 
 // Declare location objects
 function Store(
@@ -114,16 +116,9 @@ function createSalesTable() {
   let totalOfDailyTotals = 0;
   let salesTableEl = document.querySelector('#sales-table');
   let rowEl = document.createElement('tr');
-  rowEl.classList.add('table-titles');
-  salesTableEl.appendChild(rowEl);
-
-  // Create blank top-left table cell
-  let tableTitleEl = document.createElement('th');
-  tableTitleEl.textContent = '';
-  rowEl.appendChild(tableTitleEl);
 
   // Create row of times as table headings (open time, close time, parent row object)
-  createTableHeader(6, 20, rowEl);
+  createTableHeader(globalOpenTime, globalCloseTime);
 
   // Create row of hourly sales for each store, starting each row with store name
   for (let store of stores) {
@@ -151,13 +146,24 @@ function createSalesTable() {
     tableTitleEl.textContent = sumSales;
     rowEl.appendChild(tableTitleEl);
   }
-  // Create table footer with hourly totals
-  createTableFooter(6, 20, totalOfDailyTotals);
+  // Create table footer with hourly totals (open time, close time, total of daily totals)
+  createTableFooter(globalOpenTime, globalCloseTime, totalOfDailyTotals);
 }
 
 // Create table header with row of open times
-function createTableHeader(openTime, closedTime, rowEl) {
+function createTableHeader(openTime, closedTime) {
+  let salesTableEl = document.querySelector('#sales-table');
+  let rowEl = document.createElement('tr');
+  rowEl.classList.add('table-titles');
+  salesTableEl.appendChild(rowEl);
+
+  // Create blank top-left table cell
   let tableTitleEl = document.createElement('th');
+  tableTitleEl.textContent = '';
+  rowEl.appendChild(tableTitleEl);
+
+  // Populate times as header titles for all possible hours open
+  tableTitleEl = document.createElement('th');
   for (let i = openTime; i < closedTime; i++) {
     let tableTitleEl = document.createElement('th');
     tableTitleEl.textContent = `${i > 12 ? i - 12 + 'pm' : i + 'am'}`;
@@ -172,7 +178,6 @@ function createTableHeader(openTime, closedTime, rowEl) {
 // Create table footer with hourly totals
 function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
   let crossStoreTotals = [];
-  let sumTotals = 0;
   let rowEl = document.createElement('tr');
   rowEl.classList.add('cross-store-totals');
   document.querySelector('#sales-table').appendChild(rowEl);
@@ -183,6 +188,7 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
   rowEl.appendChild(tableTitleEl);
 
   // Get totals for each column across all stores
+  let sumTotals = 0;
   for (let i = 0; i < closedTime - openTime; i++) {
     for (let store of stores) {
       sumTotals += store.hourlyTotals[i];
@@ -190,6 +196,8 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
     crossStoreTotals[i] = sumTotals;
     sumTotals = 0;
   }
+
+  // Populate and dispaly column totals
   for (let total of crossStoreTotals) {
     let tableTitleEl = document.createElement('th');
     tableTitleEl.textContent = total;
