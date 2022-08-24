@@ -11,26 +11,6 @@ h6 {
 p {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-#cookies-per-hour {
-  font-family: Arial, Helvetica, sans-serif;
-}
-#cookies-per-hour h2 {
-  border-bottom: thin solid #0d68ad;
-  text-transform: capitalize;
-  display: inline-block;
-  margin: 8px;
-}
-#cookies-per-hour li {
-  list-style-type: disc;
-  padding-bottom: 2px;
-  margin-left: 10px;
-}
-#cookies-per-hour div {
-  border: thin solid #0d68ad;
-  display: inline-block;
-  margin: 10px;
-  padding: 10px;
-}
 body {
   /* background-color: #a7cff1; // Light Blue */
   background-color: #bbbbbd;
@@ -111,3 +91,25 @@ footer p {
   border: thin solid #6c6c6c;
   text-transform: capitalize;
 }
+
+/*  Deprecated after v1 
+#cookies-per-hour {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#cookies-per-hour h2 {
+  border-bottom: thin solid #0d68ad;
+  text-transform: capitalize;
+  display: inline-block;
+  margin: 8px;
+}
+#cookies-per-hour li {
+  list-style-type: disc;
+  padding-bottom: 2px;
+  margin-left: 10px;
+}
+#cookies-per-hour div {
+  border: thin solid #0d68ad;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+} */
