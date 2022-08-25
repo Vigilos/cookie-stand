@@ -57,7 +57,7 @@ nav img {
 }
 nav a {
   color: #f1f9ff;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   margin-bottom: 10px;
 }
@@ -179,7 +179,23 @@ footer p {
 .location-title {
   font-weight: bold;
 }
-
+fieldset {
+  border: thin solid #6c6c6c;
+  padding: 10px;
+  margin: 20px 0px 0px 20px;
+}
+fieldset p {
+  display: inline-block;
+  padding-right: 5px;
+}
+inner-form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.inline-block {
+  display: inline-block;
+}
 /*  Deprecated after v1 
 #cookies-per-hour {
   font-family: Arial, Helvetica, sans-serif;
