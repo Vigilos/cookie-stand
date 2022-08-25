@@ -199,7 +199,7 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
     sumTotals = 0;
   }
 
-  // Populate and dispaly column totals
+  // Populate and display column totals
   for (let total of crossStoreTotals) {
     let tableTitleEl = document.createElement('th');
     tableTitleEl.textContent = total;
