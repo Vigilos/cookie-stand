@@ -179,7 +179,12 @@ footer p {
 .location-title {
   font-weight: bold;
 }
+#add-store {
+  width: 50%;
+}
 fieldset {
+  display: flex;
+  flex-direction: column;
   border: thin solid #6c6c6c;
   padding: 10px;
   margin: 20px 0px 0px 20px;
@@ -195,6 +200,15 @@ inner-form-div {
 }
 .inline-block {
   display: inline-block;
+}
+input[type='number'] {
+  width: 40px;
+}
+.inner-form-div div {
+  padding-right: 30px;
+}
+#add-store-btn {
+  width: 50px;
 }
 /*  Deprecated after v1 
 #cookies-per-hour {

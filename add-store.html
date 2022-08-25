@@ -25,16 +25,16 @@
           <legend>Add New Store Location</legend>
           <div class="form-div">
             <p>Store Name</p>
-            <input name="store_name" type="text" />
+            <input name="store_name" type="text" size="20" />
           </div>
           <div class="inner-form-div">
             <div class="inline-block">
               <p>Open Time</p>
-              <input name="open_time" type="number" />
+              <input name="open_time" type="number" size="8" />
             </div>
             <div class="inline-block">
               <p>Close Time</p>
-              <input name="open_time" type="number" />
+              <input name="close_time" type="number" />
             </div>
           </div>
           <div class="inner-form-div">
@@ -47,9 +47,13 @@
               <input name="cust_max" type="number" />
             </div>
           </div>
+          <div>
           <p>Average Cookies Sold Per Customer</p>
           <input name="avg_sold" type="number" />
         </div>
+        </div>
+        <div>
+        <button id="add-store=btn" type="submit">Add New Store</button></div>
         </fieldset>
       </form>
     </main>

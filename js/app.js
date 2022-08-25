@@ -109,7 +109,9 @@ for (let store of stores) {
 }
 
 // Call function to generate and display sales estimates data table
-createSalesTable();
+if (window.location.pathname == '/sales.html') {
+  createSalesTable();
+}
 
 // Create initial HTML structure for sales data table on sales page
 function createSalesTable() {
@@ -208,4 +210,27 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
   tableTitleEl = document.createElement('th');
   tableTitleEl.textContent = totalOfDailyTotals;
   rowEl.appendChild(tableTitleEl);
+}
+
+// Get user input for new store location
+if (window.location.pathname == '/add-store.html') {
+  let formEl = document.getElementById('add-store');
+  formEl.addEventListener('submit', function (event) {
+    event.preventDefault(); //Prevent default actions such as page refresh
+
+    let { store_name, open_time, close_time, cust_min, cust_max, avg_sold } =
+      event.target;
+
+    addStore({
+      name: store_name.value,
+      hourOpen: open_time.value,
+      hourClosed: close_time.value,
+      minCust: cust_min.value,
+      maxCust: cust_max.value,
+      avgSoldCookies: avg_sold.value,
+      hourlyTotals: [],
+    });
+
+    console.log(stores);
+  });
 }
