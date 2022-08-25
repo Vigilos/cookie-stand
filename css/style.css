@@ -76,7 +76,10 @@ main.home-page {
 }
 #hero-image {
   margin-top: 20px;
-  width: 600px;
+  max-width: 75%;
+  height: auto;
+  width: auto\9; /* IE8 */
+  /* width: 600px; */
   border: thin solid #616161;
 }
 .flex-row {
@@ -85,7 +88,6 @@ main.home-page {
   justify-content: center;
   width: 85%;
 }
-
 .cookie-image {
   width: 200px;
   height: 200px;
