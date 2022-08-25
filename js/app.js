@@ -136,6 +136,7 @@ function createSalesTable() {
     for (let sale of store.hourlyTotals) {
       let tableTitleEl = document.createElement('td');
       tableTitleEl.textContent = sale;
+      console.log(store.name, sale);
       rowEl.appendChild(tableTitleEl);
       sumSales += sale;
     }
@@ -213,7 +214,10 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
 }
 
 // Get user input for new store location
-if (window.location.pathname == '/add-store.html') {
+if (
+  window.location.pathname == '/add-store.html' ||
+  window.location.pathname == '/sales.html'
+) {
   let formEl = document.getElementById('add-store');
   formEl.addEventListener('submit', function (event) {
     event.preventDefault(); //Prevent default actions such as page refresh
@@ -223,14 +227,21 @@ if (window.location.pathname == '/add-store.html') {
 
     addStore({
       name: store_name.value,
-      hourOpen: open_time.value,
-      hourClosed: close_time.value,
-      minCust: cust_min.value,
-      maxCust: cust_max.value,
-      avgSoldCookies: avg_sold.value,
+      hourOpen: Number(open_time.value),
+      hourClosed: Number(close_time.value),
+      minCust: Number(cust_min.value),
+      maxCust: Number(cust_max.value),
+      avgSoldCookies: Number(avg_sold.value),
       hourlyTotals: [],
     });
 
     console.log(stores);
+
+    document.querySelector('#sales-table').innerHTML = '';
+
+    for (let store of stores) {
+      store.calcCustPerHour();
+    }
+    createSalesTable();
   });
 }

@@ -210,6 +210,10 @@ input[type='number'] {
 #add-store-btn {
   width: 50px;
 }
+#sales-main-div {
+  display: flex;
+  flex-direction: column;
+}
 /*  Deprecated after v1 
 #cookies-per-hour {
   font-family: Arial, Helvetica, sans-serif;
