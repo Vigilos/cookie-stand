@@ -109,7 +109,9 @@ for (let store of stores) {
 }
 
 // Call function to generate and display sales estimates data table
-createSalesTable();
+if (window.location.pathname == '/sales.html') {
+  createSalesTable();
+}
 
 // Create initial HTML structure for sales data table on sales page
 function createSalesTable() {
@@ -211,69 +213,74 @@ function createTableFooter(openTime, closedTime, totalOfDailyTotals) {
 }
 
 // Get user input for new store location
-// Declare variable to point at add-store form
-let formEl = document.getElementById('add-store');
-// Listen for submit button press for form
-formEl.addEventListener('submit', function (event) {
-  event.preventDefault(); //Prevent default actions such as page refresh
+if (
+  window.location.pathname == '/add-store.html' ||
+  window.location.pathname == '/sales.html'
+) {
+  // Declare variable to point at add-store form
+  let formEl = document.getElementById('add-store');
+  // Listen for submit button press for form
+  formEl.addEventListener('submit', function (event) {
+    event.preventDefault(); //Prevent default actions such as page refresh
 
-  // Break out data from form into variables
-  let { store_name, open_time, close_time, cust_min, cust_max, avg_sold } =
-    event.target;
+    // Break out data from form into variables
+    let { store_name, open_time, close_time, cust_min, cust_max, avg_sold } =
+      event.target;
 
-  // Validate user input
-  // Check for spaces in store name
-  if (store_name.value.indexOf(' ') >= 0) {
-    alert('Store names cannot contain spaces. Please re-enter a new name.');
-    // Check if all fields are filled
-  } else if (
-    store_name.value == undefined ||
-    open_time.value == undefined ||
-    close_time.value == undefined ||
-    cust_min.value == undefined ||
-    cust_max.value == undefined ||
-    avg_sold.value == undefined ||
-    store_name.value == '' ||
-    open_time.value == '' ||
-    close_time.value == '' ||
-    cust_min.value == '' ||
-    cust_max.value == '' ||
-    avg_sold.value == ''
-  ) {
-    alert(
-      'All fields must be filled to add a new store. Please complete the entire form.'
-    );
-    // Check if customers per hour min is larger than max
-  } else if (cust_min.value > cust_max.value) {
-    alert(
-      'Customers per hour min cannot exceed max. Please enter a larger number in the max field.'
-    );
-  } else {
-    // Add new store from user to array of stores
-    addStore({
-      name: store_name.value,
-      hourOpen: Number(open_time.value),
-      hourClosed: Number(close_time.value),
-      minCust: Number(cust_min.value),
-      maxCust: Number(cust_max.value),
-      avgSoldCookies: Number(avg_sold.value),
-      hourlyTotals: [],
-    });
+    // Validate user input
+    // Check for spaces in store name
+    if (store_name.value.indexOf(' ') >= 0) {
+      alert('Store names cannot contain spaces. Please re-enter a new name.');
+      // Check if all fields are filled
+    } else if (
+      store_name.value == undefined ||
+      open_time.value == undefined ||
+      close_time.value == undefined ||
+      cust_min.value == undefined ||
+      cust_max.value == undefined ||
+      avg_sold.value == undefined ||
+      store_name.value == '' ||
+      open_time.value == '' ||
+      close_time.value == '' ||
+      cust_min.value == '' ||
+      cust_max.value == '' ||
+      avg_sold.value == ''
+    ) {
+      alert(
+        'All fields must be filled to add a new store. Please complete the entire form.'
+      );
+      // Check if customers per hour min is larger than max
+    } else if (cust_min.value > cust_max.value) {
+      alert(
+        'Customers per hour min cannot exceed max. Please enter a larger number in the max field.'
+      );
+    } else {
+      // Add new store from user to array of stores
+      addStore({
+        name: store_name.value,
+        hourOpen: Number(open_time.value),
+        hourClosed: Number(close_time.value),
+        minCust: Number(cust_min.value),
+        maxCust: Number(cust_max.value),
+        avgSoldCookies: Number(avg_sold.value),
+        hourlyTotals: [],
+      });
 
-    // Clear old table
-    document.querySelector('#sales-table').innerHTML = '';
+      // Clear old table
+      document.querySelector('#sales-table').innerHTML = '';
 
-    // Recalculate hourly sales for new array of stores
-    for (let store of stores) {
-      store.calcCustPerHour();
+      // Recalculate hourly sales for new array of stores
+      for (let store of stores) {
+        store.calcCustPerHour();
+      }
+
+      // Create and display new sales table
+      createSalesTable();
     }
-
-    // Create and display new sales table
-    createSalesTable();
-  }
-  let form = 'add-store';
-  clearForm(form);
-});
+    let form = 'add-store';
+    clearForm(form);
+  });
+}
 
 // Clear all user entries on form
 function clearForm(form) {
