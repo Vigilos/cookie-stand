@@ -7,15 +7,17 @@ h3,
 h5,
 h6 {
   font-family: 'Acme', sans-serif;
+  color: #011f3c;
 }
 p {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
 }
 body {
   background-color: #bbbbbd;
 }
 header {
-  background-color: #0d68ad;
+  background-color: #003e7d;
   height: 170px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -39,21 +41,20 @@ header h1 {
   transform: translate(-50%, -50%);
   width: 550px;
 }
-main {
-  padding-bottom: 10px;
-}
 nav {
   display: flex;
   flex-direction: column;
   width: 75px;
-  background-color: #616161;
+  background-color: #0d68ad;
   align-items: center;
   padding-top: 20px;
   z-index: 10;
+  border-right: 2px solid black;
 }
 nav img {
   width: 75px;
   margin-bottom: 10px;
+  mix-blend-mode: multiply;
 }
 nav a {
   color: #f1f9ff;
@@ -79,8 +80,9 @@ main.home-page {
   max-width: 75%;
   height: auto;
   width: auto\9; /* IE8 */
-  /* width: 600px; */
-  border: thin solid #616161;
+  border: thick solid #616161;
+  border-radius: 5px;
+  border-style: double;
 }
 .flex-row {
   display: flex;
@@ -89,13 +91,16 @@ main.home-page {
   width: 85%;
 }
 .cookie-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 0px 20px 0px 20px;
   border: thin solid #616161;
+  mix-blend-mode: multiply;
+  border-radius: 20px;
 }
 .home-page-blocks {
   border: thin solid #616161;
+  border-radius: 5px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -104,6 +109,13 @@ main.home-page {
 .home-page h2 {
   padding: 10px;
   font-size: 20px;
+}
+#store-locations {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #b3b7c3;
 }
 #store-locations div {
   display: flex;
@@ -114,12 +126,18 @@ main.home-page {
 #store-locations article {
   width: 150px;
   margin: 0px 40px 40px 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #535151;
+}
+#online-store-section {
+  background-color: #b3b7c3;
 }
 #online-store div {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  background-color: #b3b7c3;
 }
 #online-store p {
   font-size: 18px;
@@ -129,8 +147,7 @@ main.home-page {
 footer {
   display: flex;
   flex-direction: row;
-  color: #b1d9e9;
-  background-color: #0d68ad;
+  background-color: #003e7d;
   padding: 10px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -141,6 +158,12 @@ footer div {
 }
 footer p {
   font-size: 12px;
+  color: #b1d9e9;
+}
+footer a {
+  font-size: 12px;
+  color: #b1d9e9;
+  text-decoration: none;
 }
 .footer-title {
   font-weight: bolder;
@@ -157,12 +180,14 @@ footer p {
 }
 #sales-table {
   margin: 20px 0px 20px 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #sales-table td {
   padding: 8px;
   text-align: center;
   border: thin solid #6c6c6c;
   text-transform: capitalize;
+  background-color: #b3b7c3;
 }
 .table-titles th {
   padding: 8px 8px 12px 8px;
@@ -175,6 +200,7 @@ footer p {
   text-align: center;
   border: thin solid #6c6c6c;
   text-transform: capitalize;
+  background-color: #9598a3;
 }
 .location-title {
   font-weight: bold;
@@ -186,8 +212,18 @@ fieldset {
   display: flex;
   flex-direction: column;
   border: thin solid #6c6c6c;
+  border-radius: 10px;
   padding: 10px;
-  margin: 0px 0px 0px 20px;
+  margin: 0px 0px 20px 20px;
+  text-align: center;
+  background-color: #b3b7c3;
+}
+legend {
+  color: #f1f9ff;
+  background-color: #0d68ad;
+  border: thin solid #6c6c6c;
+  border-radius: 10px;
+  padding: 3px 5px 3px 5px;
 }
 fieldset p {
   display: inline-block;
@@ -215,31 +251,10 @@ input[type='number'] {
   padding-right: 30px;
 }
 #add-store-btn {
-  width: 50px;
+  width: 120px;
+  background-color: #6680f3;
 }
 #sales-main-div {
   display: flex;
   flex-direction: column;
 }
-
-/*  Deprecated after v1 
-#cookies-per-hour {
-  font-family: Arial, Helvetica, sans-serif;
-}
-#cookies-per-hour h2 {
-  border-bottom: thin solid #0d68ad;
-  text-transform: capitalize;
-  display: inline-block;
-  margin: 8px;
-}
-#cookies-per-hour li {
-  list-style-type: disc;
-  padding-bottom: 2px;
-  margin-left: 10px;
-}
-#cookies-per-hour div {
-  border: thin solid #0d68ad;
-  display: inline-block;
-  margin: 10px;
-  padding: 10px;
-} */
